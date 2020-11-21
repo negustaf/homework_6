@@ -53,6 +53,10 @@ function increaseSpeed() {
 };
 function advance() {
 	video.currentTime += 5;
+	if (video.ended) {
+		video.currentTime = 0;
+		video.play();
+	}
 };
 mute.onclick = function() {
 	if (video.muted) {
@@ -61,7 +65,7 @@ mute.onclick = function() {
 	}
 	else {
 		video.muted = true;
-		mute.innerHTML = 'unmute';
+		mute.innerHTML = 'Unmute';
 	}
 };
 function greyscaleFilter() {
