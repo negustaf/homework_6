@@ -4,24 +4,56 @@ window.addEventListener("load", function() {
 });
 document.querySelector("#play").addEventListener("click", function() {
 	console.log("Play Video");
-	video.play();
 });
 document.querySelector("#pause").addEventListener("click", function() {
-	video.pause();
 });
-/* SLOW DOWN VIDEO BUTTON */
-slower.onclick = function setPlaySpeed() {
-  video.playbackRate -= 0.1;
+
+document.getElementById('play').addEventListener('click', playVideo);
+document.getElementById('pause').addEventListener('click', pauseVideo);
+document.getElementById('slower').addEventListener('click', decreaseSpeed);
+document.getElementById('faster').addEventListener('click', increaseSpeed);
+document.getElementById('skip').addEventListener('click', advance);
+document.getElementById('mute').addEventListener('click', mute);
+document.getElementById('old').addEventListener('click', greyscaleFilter);
+document.getElementById('original').addEventListener('click', noFilter);
+
+function playVideo() {
+  video.play();
 };
-/* SPEED UP VIDEO BUTTON */
-faster.onclick = function setPlaySpeed() {
-  video.playbackRate += 0.1;
+var video;
+window.addEventListener("load", function() {
+	video = document.querySelector("#myVideo");
+});
+document.querySelector("#play").addEventListener("click", function() {
+	console.log("Play Video");
+});
+document.querySelector("#pause").addEventListener("click", function() {
+});
+
+document.getElementById('play').addEventListener('click', playVideo);
+document.getElementById('pause').addEventListener('click', pauseVideo);
+document.getElementById('slower').addEventListener('click', decreaseSpeed);
+document.getElementById('faster').addEventListener('click', increaseSpeed);
+document.getElementById('skip').addEventListener('click', advance);
+document.getElementById('mute').addEventListener('click', mute);
+document.getElementById('old').addEventListener('click', greyscaleFilter);
+document.getElementById('original').addEventListener('click', noFilter);
+
+function playVideo() {
+  video.play();
 };
-/* SKIP 5 SECONDS VIDEO BUTTON */
-skip.onclick = function currentTime() {
+function pauseVideo() {
+	video.pause();
+};
+function decreaseSpeed() {
+	video.playbackRate -= 0.1;
+};
+function increaseSpeed() {
+	video.playbackRate += 0.1;
+};
+function advance() {
 	video.currentTime += 5;
 };
-/* MUTE TOGGLE VIDEO BUTTON */
 mute.onclick = function() {
 	if (video.muted) {
 		video.muted = false;
@@ -32,7 +64,21 @@ mute.onclick = function() {
 		mute.innerHTML = 'unmute';
 	}
 };
-/* VOLUME SLIDER VIDEO BUTTON */
+function greyscaleFilter() {
+	video.classList.add('oldTime');
+};
+function noFilter() {
+	video.classList.remove('oldTime');
+};
+
+function greyscaleFilter() {
+	video.classList.add('oldTime');
+};
+function noFilter() {
+	video.classList.remove('oldTime');
+};
+
+/* VIDEO VOLUME SLIDER */
 var slider = document.getElementById('volumeSlider');
 var output = document.getElementById('volume');
 output.innerHTML = slider.value;
@@ -44,13 +90,3 @@ var setVolume = function(){
 };
 slider.addEventListener('change',setVolume);
 slider.addEventListener('input',setVolume);
-
-/* ADD GREYSCALE (.oldTime) CLASS TO VIDEO */
-old.onclick = function() {
-	video.classList.add('oldTime');
-}
-original.onclick = function() {
-	video.classList.remove('oldTime')
-}
-
-/* HOW DO YOU ORGANIZE CODE IN JS LANGUAGE? */
