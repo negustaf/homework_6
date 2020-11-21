@@ -51,6 +51,8 @@ function decreaseSpeed() {
 function increaseSpeed() {
 	video.playbackRate += 0.1;
 };
+
+/* ADVANCE 5 SECONDS BUTTON (PLUS RESTART ON CLICK AFTER REACHING END) */
 function advance() {
 	video.currentTime += 5;
 	if (video.ended) {
@@ -58,6 +60,8 @@ function advance() {
 		video.play();
 	}
 };
+
+/* VIDEO MUTE BUTTON */
 mute.onclick = function() {
 	if (video.muted) {
 		video.muted = false;
@@ -67,12 +71,6 @@ mute.onclick = function() {
 		video.muted = true;
 		mute.innerHTML = 'Unmute';
 	}
-};
-function greyscaleFilter() {
-	video.classList.add('oldTime');
-};
-function noFilter() {
-	video.classList.remove('oldTime');
 };
 
 function greyscaleFilter() {
