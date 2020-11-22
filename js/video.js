@@ -69,7 +69,7 @@ var setVolume = function(){
     video.volume = this.value / 100;
 };
 slider.addEventListener('change',setVolume);
-slider.addEventListener('input',setVolume);*/
+slider.addEventListener('input',setVolume);*/ 
 
 document.getElementById('volumeSlider').addEventListener('change', function() {
 	video.volume = this.value / 100;
