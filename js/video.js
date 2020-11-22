@@ -20,28 +20,6 @@ document.getElementById('original').addEventListener('click', noFilter);
 function playVideo() {
   video.play();
 };
-var video;
-window.addEventListener("load", function() {
-	video = document.querySelector("#myVideo");
-});
-document.querySelector("#play").addEventListener("click", function() {
-	console.log("Play Video");
-});
-document.querySelector("#pause").addEventListener("click", function() {
-});
-
-document.getElementById('play').addEventListener('click', playVideo);
-document.getElementById('pause').addEventListener('click', pauseVideo);
-document.getElementById('slower').addEventListener('click', decreaseSpeed);
-document.getElementById('faster').addEventListener('click', increaseSpeed);
-document.getElementById('skip').addEventListener('click', advance);
-document.getElementById('mute').addEventListener('click', mute);
-document.getElementById('old').addEventListener('click', greyscaleFilter);
-document.getElementById('original').addEventListener('click', noFilter);
-
-function playVideo() {
-  video.play();
-};
 function pauseVideo() {
 	video.pause();
 };
@@ -81,7 +59,7 @@ function noFilter() {
 };
 
 /* VIDEO VOLUME SLIDER */
-var slider = document.getElementById('volumeSlider');
+/*var slider = document.getElementById('volumeSlider');
 var output = document.getElementById('volume');
 output.innerHTML = slider.value;
 slider.oninput = function() {
@@ -91,4 +69,9 @@ var setVolume = function(){
     video.volume = this.value / 100;
 };
 slider.addEventListener('change',setVolume);
-slider.addEventListener('input',setVolume);
+slider.addEventListener('input',setVolume);*/
+
+document.getElementById('volumeSlider').addEventListener('change', function() {
+	video.volume = this.value / 100;
+	volume.innerHTML = this.value + '%';
+});
