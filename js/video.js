@@ -19,6 +19,7 @@ document.getElementById('original').addEventListener('click', noFilter);
 
 function playVideo() {
   video.play();
+	volume.innerHTML = (video.volume * 100) + '%';
 };
 function pauseVideo() {
 	video.pause();
@@ -58,6 +59,7 @@ function noFilter() {
 	video.classList.remove('oldTime');
 };
 
+/* VIDEO VOLUME SLIDER */
 document.getElementById('volumeSlider').addEventListener('change', function() {
 	video.volume = this.value / 100;
 	volume.innerHTML = this.value + '%';
