@@ -60,7 +60,7 @@ function noFilter() {
 };
 
 /* VIDEO VOLUME SLIDER */
-document.getElementById('volumeSlider').addEventListener('change', function() {
+document.getElementById('volumeSlider').addEventListener('change', function() { 
 	video.volume = this.value / 100;
 	volume.innerHTML = this.value + '%';
 });
